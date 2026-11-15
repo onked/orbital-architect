@@ -1,0 +1,115 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://ui/tutorial.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_school"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.0352941, 0.054902, 0.0823529, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.709804, 0.239216, 0.85)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress"]
+bg_color = Color(1, 0.709804, 0.239216, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Tutorial" type="PanelContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = -226.0
+offset_right = 312.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_theme")
+theme_override_styles/panel = SubResource("StyleBoxFlat_school")
+script = ExtResource("1_script")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Kicker" type="Label" parent="VBox/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.709804, 0.239216, 1)
+theme_override_font_sizes/font_size = 10
+text = "FLIGHT SCHOOL  /  1 OF 9"
+
+[node name="Skip" type="Button" parent="VBox/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 9
+flat = true
+text = "SKIP"
+
+[node name="Progress" type="ProgressBar" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+max_value = 1.0
+value = 0.11
+show_percentage = false
+theme_override_styles/fill = SubResource("StyleBoxFlat_progress")
+
+[node name="Title" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.709804, 0.239216, 1)
+theme_override_font_sizes/font_size = 16
+text = "Step title"
+
+[node name="Body" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.843137, 0.890196, 0.956863, 1)
+theme_override_constants/line_spacing = 3
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 3
+text = "Step body"
+
+[node name="Footer" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Hint" type="Label" parent="VBox/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.435294, 0.494118, 0.576471, 1)
+theme_override_font_sizes/font_size = 9
+text = "Auto-advances. GOT IT = next."
+autowrap_mode = 3
+
+[node name="Next" type="Button" parent="VBox/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(112, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "GOT IT  >"

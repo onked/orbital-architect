@@ -1,0 +1,394 @@
+{
+	"missions": [
+		{
+			"id": "lunar_relay",
+			"number": 1,
+			"name": "Lunar Relay",
+			"code": "M-01 / ARTEMIS-CLASS",
+			"playable": true,
+			"target_body": "moon",
+			"start_body": "earth",
+			"start_altitude_m": 200000,
+			"budget_usd": 85000000,
+			"mass_cap_kg": 1800,
+			"required_parts": [
+				"sci_relay",
+				"dish_hga"
+			],
+			"recommended_design": [
+				"core_bus",
+				"tank_large",
+				"engine_chem",
+				"solar_wing",
+				"dish_hga",
+				"sci_relay",
+				"structure_ring"
+			],
+			"science_range_m": 30000000,
+			"duration_days": 30,
+			"briefing": [
+				"Put a relay orbiter around the Moon. It has to stay, not fly past.",
+				"Launch from 200 km Earth orbit. Raise apoapsis to lunar distance, then capture at closest approach.",
+				"Budget $85M. Mass cap 1,800 kg."
+			],
+			"hints": [
+				"Trans-lunar injection: about 3,170 m/s prograde.",
+				"Lunar capture at periapsis: roughly 600 m/s retrograde.",
+				"Preview uses flight physics."
+			],
+			"objectives": [
+				{
+					"id": "tli",
+					"label": "Trans-lunar injection",
+					"detail": "Reach 100,000 km from Earth.",
+					"points": 25,
+					"kind": "distance",
+					"body": "earth",
+					"value": 100000
+				},
+				{
+					"id": "capture",
+					"label": "Stable lunar orbit",
+					"detail": "Bound orbit inside the Moon's SOI.",
+					"points": 30,
+					"kind": "bound",
+					"body": "moon"
+				},
+				{
+					"id": "science",
+					"label": "Relay science packet",
+					"detail": "Transmit within 30,000 km of the Moon.",
+					"points": 20,
+					"kind": "transmit"
+				}
+			],
+			"scoring": {
+				"objectives": 75,
+				"budget_surplus": 15,
+				"fuel_efficiency": 10
+			},
+			"science_note": "The Moon is tidally locked, so one hemisphere never faces Earth. A high lunar relay orbit keeps both the near side and the far side in contact with mission control."
+		},
+		{
+			"id": "jezero_descent",
+			"number": 2,
+			"name": "Jezero Descent",
+			"code": "M-02 / MARS 2020",
+			"playable": true,
+			"target_body": "mars",
+			"start_body": "earth",
+			"start_altitude_m": 200000,
+			"budget_usd": 180000000,
+			"mass_cap_kg": 3500,
+			"required_parts": [
+				"shield_ablative",
+				"sci_camera"
+			],
+			"recommended_design": [
+				"core_deep",
+				"tank_large",
+				"tank_large",
+				"tank_small",
+				"engine_chem",
+				"rtg_mmr",
+				"dish_hga",
+				"shield_ablative",
+				"sci_camera"
+			],
+			"science_range_m": 50000000,
+			"duration_days": 320,
+			"briefing": [
+				"Land a 1,025 kg rover in Jezero Crater.",
+				"Wait for an Earth-Mars window. Fit the ablative shield before arrival.",
+				"Mars gets 43% of Earth's sunlight. Plan power for that."
+			],
+			"hints": [
+				"Trans-Mars injection: about 3.6 km/s from low Earth orbit.",
+				"Mars capture: 1.5 to 2.0 km/s retrograde at periapsis.",
+				"Atmosphere entry ends the mission. Heat shield required."
+			],
+			"objectives": [
+				{
+					"id": "tmi",
+					"label": "Trans-Mars injection",
+					"detail": "Leave Earth's SOI.",
+					"points": 25,
+					"kind": "escape",
+					"body": "earth"
+				},
+				{
+					"id": "arrival",
+					"label": "Mars arrival",
+					"detail": "Enter the Martian SOI.",
+					"points": 30,
+					"kind": "soi",
+					"body": "mars"
+				},
+				{
+					"id": "landing",
+					"label": "Survive entry",
+					"detail": "Reach the atmosphere with a heat shield.",
+					"points": 20,
+					"kind": "atmosphere",
+					"body": "mars",
+					"ends": true
+				}
+			],
+			"scoring": {
+				"objectives": 75,
+				"budget_surplus": 15,
+				"fuel_efficiency": 10
+			},
+			"science_note": "Mars has less than 1% of Earth's atmospheric pressure. A lander needs a heat shield, a parachute and retro-rockets, each doing part of the braking."
+		},
+		{
+			"id": "metal_world",
+			"number": 3,
+			"name": "Metal World",
+			"code": "M-03 / PSYCHE",
+			"playable": true,
+			"target_body": "psyche",
+			"start_body": "earth",
+			"start_altitude_m": 200000,
+			"budget_usd": 220000000,
+			"mass_cap_kg": 2800,
+			"required_parts": [
+				"sci_camera"
+			],
+			"recommended_design": [
+				"core_deep",
+				"tank_large",
+				"engine_ion",
+				"rtg_mmr",
+				"dish_hga",
+				"sci_camera",
+				"structure_ring"
+			],
+			"science_range_m": 50000000,
+			"duration_days": 1600,
+			"briefing": [
+				"Rendezvous with 16 Psyche and map its magnetic field.",
+				"2.9 AU out. Solar output is under a tenth of Earth's.",
+				"Ion drive: high Isp, low thrust. Long spirals."
+			],
+			"hints": [
+				"RTGs beat solar past the asteroid belt.",
+				"The belt is at 2.2 AU.",
+				"Spiral out with many small burns."
+			],
+			"objectives": [
+				{
+					"id": "depart",
+					"label": "Spiral out of Earth",
+					"detail": "Reach 2,000,000 km from Earth.",
+					"points": 25,
+					"kind": "distance",
+					"body": "earth",
+					"value": 2000000
+				},
+				{
+					"id": "belt",
+					"label": "Cross the asteroid belt",
+					"detail": "Reach 2.2 AU from the Sun.",
+					"points": 30,
+					"kind": "au",
+					"value": 2.2
+				}
+			],
+			"scoring": {
+				"objectives": 75,
+				"budget_surplus": 15,
+				"fuel_efficiency": 10
+			},
+			"science_note": "16 Psyche may be the exposed metallic core of a shattered protoplanet. Its density and radar brightness point to iron and nickel rather than rock."
+		},
+		{
+			"id": "europa_clipper",
+			"number": 4,
+			"name": "Europa Clipper",
+			"code": "M-04 / JOVIAN SYSTEM",
+			"playable": true,
+			"target_body": "jupiter",
+			"start_body": "earth",
+			"start_altitude_m": 200000,
+			"budget_usd": 320000000,
+			"mass_cap_kg": 5200,
+			"required_parts": [
+				"rtg_mmr",
+				"dish_hga"
+			],
+			"recommended_design": [
+				"core_deep",
+				"tank_large",
+				"tank_large",
+				"tank_small",
+				"engine_chem",
+				"rtg_mmr",
+				"dish_hga",
+				"sci_camera",
+				"structure_ring",
+				"tank_large"
+			],
+			"science_range_m": 100000000,
+			"duration_days": 2200,
+			"briefing": [
+				"Five close flybys of Europa, inside Jupiter's radiation belts.",
+				"5.2 AU: solar is dead weight. Bring RTGs.",
+				"Aim perijove to thread Europa's orbit."
+			],
+			"hints": [
+				"Jupiter arrival: about 6.3 km/s from low Earth orbit.",
+				"Europa orbits 671,000 km from Jupiter.",
+				"Fast flybys and hardened cores keep the electronics alive."
+			],
+			"objectives": [
+				{
+					"id": "arrive",
+					"label": "Jupiter arrival",
+					"detail": "Enter the Jovian SOI.",
+					"points": 25,
+					"kind": "soi",
+					"body": "jupiter"
+				},
+				{
+					"id": "flyby",
+					"label": "Europa flyby",
+					"detail": "Pass within 100,000 km of Europa.",
+					"points": 30,
+					"kind": "flyby",
+					"body": "europa",
+					"value": 100000
+				}
+			],
+			"scoring": {
+				"objectives": 75,
+				"budget_surplus": 15,
+				"fuel_efficiency": 10
+			},
+			"science_note": "Europa's ice shell probably hides a salty ocean. Jupiter's tides flex the moon and supply the heat that keeps the water liquid."
+		},
+		{
+			"id": "outer_grand_tour",
+			"number": 5,
+			"name": "Outer Grand Tour",
+			"code": "M-05 / GRAND TOUR",
+			"playable": true,
+			"target_body": "saturn",
+			"start_body": "earth",
+			"start_altitude_m": 200000,
+			"budget_usd": 450000000,
+			"mass_cap_kg": 11000,
+			"required_parts": [
+				"rtg_mmr",
+				"dish_hga",
+				"shield_ablative"
+			],
+			"recommended_design": [
+				"core_deep",
+				"tank_large",
+				"tank_large",
+				"tank_small",
+				"tank_small",
+				"engine_chem",
+				"rtg_mmr",
+				"rtg_mmr",
+				"dish_hga",
+				"shield_ablative",
+				"sci_camera",
+				"tank_large",
+				"tank_large",
+				"tank_large",
+				"tank_large",
+				"tank_large",
+				"tank_large"
+			],
+			"science_range_m": 200000000,
+			"duration_days": 4500,
+			"briefing": [
+				"Jupiter flyby, Saturn capture, probe release at Titan.",
+				"Gravity assists are the only affordable route.",
+				"9.5 AU: RTGs mandatory, solar dead weight."
+			],
+			"hints": [
+				"Use Jupiter to bend the trajectory outward.",
+				"Saturn capture: retrograde burn inside its SOI.",
+				"Two RTGs keep the bus alive."
+			],
+			"objectives": [
+				{
+					"id": "jupiter",
+					"label": "Jupiter assist",
+					"detail": "Pass through the Jovian SOI.",
+					"points": 25,
+					"kind": "soi",
+					"body": "jupiter"
+				},
+				{
+					"id": "saturn",
+					"label": "Saturn orbit",
+					"detail": "Bound orbit inside the Saturn SOI.",
+					"points": 30,
+					"kind": "bound",
+					"body": "saturn"
+				}
+			],
+			"scoring": {
+				"objectives": 75,
+				"budget_surplus": 15,
+				"fuel_efficiency": 10
+			},
+			"science_note": "A gravity assist borrows orbital energy from a planet. Voyager used Jupiter and Saturn to reach the outer solar system with very little propellant."
+		},
+		{
+			"id": "flight_school_landing",
+			"number": 0,
+			"name": "Landing Drill",
+			"code": "FLIGHT SCHOOL / LANDING",
+			"playable": true,
+			"hidden": true,
+			"target_body": "moon",
+			"start_body": "moon",
+			"start_altitude_m": 2000,
+			"start_mode": "descent",
+			"budget_usd": 12000000,
+			"mass_cap_kg": 1200,
+			"required_parts": [],
+			"recommended_design": [
+				"core_bus",
+				"tank_small",
+				"engine_chem",
+				"solar_wing"
+			],
+			"science_range_m": 1000000,
+			"duration_days": 1,
+			"briefing": [
+				"Landing drill. You start 2 km above the Moon with no horizontal velocity.",
+				"Gravity is already pulling you down. Watch SURFACE ALTITUDE and RELATIVE SPEED.",
+				"Touch down under 40 m/s. END files the report."
+			],
+			"hints": [
+				"Warp until SURFACE ALTITUDE is under 1 km, then pause.",
+				"Burn retrograde. Keep RELATIVE SPEED below 40 m/s at touchdown.",
+				"This drill is about the final brake, not the transfer."
+			],
+			"objectives": [
+				{
+					"id": "land",
+					"label": "Soft touchdown",
+					"detail": "Land under 40 m/s relative speed.",
+					"points": 70,
+					"kind": "land",
+					"body": "moon",
+					"value": 40,
+					"ends": true
+				}
+			],
+			"scoring": {
+				"objectives": 75,
+				"budget_surplus": 15,
+				"fuel_efficiency": 10
+			},
+			"science_note": "The Moon has no atmosphere, so there is no parachute or aerobraking. Every metre per second of landing speed has to come from the engine."
+		}
+	]
+}

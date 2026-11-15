@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/components/objective_row.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+
+[node name="ObjectiveRow" type="VBoxContainer"]
+theme = ExtResource("2_theme")
+theme_override_constants/separation = 2
+script = ExtResource("1_script")
+
+[node name="Head" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Check" type="Label" parent="Head"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ ]"
+
+[node name="Title" type="Label" parent="Head"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "Objective"
+
+[node name="Points" type="Label" parent="Head"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 11
+text = "0 pts"
+
+[node name="Detail" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 11
+autowrap_mode = 3
+text = "Detail"

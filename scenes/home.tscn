@@ -1,0 +1,484 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://ui/home_screen.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+[ext_resource type="Script" path="res://ui/orbit_emblem.gd" id="3_emblem"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brand"]
+content_margin_left = 18.0
+content_margin_top = 16.0
+content_margin_right = 18.0
+content_margin_bottom = 12.0
+bg_color = Color(0.0470588, 0.0666667, 0.101961, 0.94)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.156863, 0.203922, 0.278431, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings"]
+content_margin_left = 18.0
+content_margin_top = 16.0
+content_margin_right = 18.0
+content_margin_bottom = 16.0
+bg_color = Color(0.054902, 0.0745098, 0.105882, 0.99)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.207843, 0.815686, 0.878431, 0.34)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.0392157, 0.0627451, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 46
+theme_override_constants/margin_bottom = 26
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Section" type="Label" parent="Margin/Root/TopBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.435294, 0.494118, 0.576471, 1)
+theme_override_font_sizes/font_size = 9
+text = "MISSION CONTROL  /  HOME"
+
+[node name="Career" type="Label" parent="Margin/Root/TopBar"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.819608, 0.4, 1)
+theme_override_font_sizes/font_size = 9
+text = "$0 CREDITS  /  0 MEDALS"
+
+[node name="Spacer" type="Control" parent="Margin/Root/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="TopGap" type="Control" parent="Margin/Root"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Body" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Column" type="VBoxContainer" parent="Margin/Root/Body"]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Brand" type="PanelContainer" parent="Margin/Root/Body/Column"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_brand")
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Column/Brand"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BrandRow" type="HBoxContainer" parent="Margin/Root/Body/Column/Brand/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Emblem" type="Control" parent="Margin/Root/Body/Column/Brand/VBox/BrandRow"]
+custom_minimum_size = Vector2(92, 92)
+layout_mode = 2
+size_flags_vertical = 4
+script = ExtResource("3_emblem")
+
+[node name="Titles" type="VBoxContainer" parent="Margin/Root/Body/Column/Brand/VBox/BrandRow"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = -2
+
+[node name="Kicker" type="Label" parent="Margin/Root/Body/Column/Brand/VBox/BrandRow/Titles"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 9
+text = "NASA SPACE APPS 2026"
+
+[node name="NameA" type="Label" parent="Margin/Root/Body/Column/Brand/VBox/BrandRow/Titles"]
+layout_mode = 2
+metadata/no_translate = true
+auto_translate_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "ORBIT"
+
+[node name="NameB" type="Label" parent="Margin/Root/Body/Column/Brand/VBox/BrandRow/Titles"]
+layout_mode = 2
+metadata/no_translate = true
+auto_translate_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 34
+text = "ARCHITECT"
+
+[node name="Rows" type="VBoxContainer" parent="Margin/Root/Body/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Fill" type="Control" parent="Margin/Root/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Settings" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0196078, 0.0313726, 0.82)
+
+[node name="Panel" type="PanelContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -345.0
+offset_right = 240.0
+offset_bottom = 345.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings")
+
+[node name="VBox" type="VBoxContainer" parent="Settings/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 15
+text = "SETTINGS"
+
+[node name="Divider" type="ColorRect" parent="Settings/Panel/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.141176, 0.196078, 0.266667, 1)
+
+[node name="Animate" type="CheckButton" parent="Settings/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Animated background"
+
+[node name="Scanlines" type="CheckButton" parent="Settings/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "CRT scanlines"
+
+[node name="Motion" type="CheckButton" parent="Settings/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Hover motion"
+
+[node name="Fullscreen" type="CheckButton" parent="Settings/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Full screen"
+
+[node name="Subtitles" type="CheckButton" parent="Settings/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Subtitles"
+
+[node name="WarpRow" type="HBoxContainer" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Settings/Panel/VBox/WarpRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.843137, 0.890196, 0.956863, 1)
+theme_override_font_sizes/font_size = 13
+text = "Background speed"
+
+[node name="WarpSpeed" type="OptionButton" parent="Settings/Panel/VBox/WarpRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(112, 0)
+layout_mode = 2
+
+[node name="LanguageRow" type="HBoxContainer" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Settings/Panel/VBox/LanguageRow"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Language"
+
+[node name="Language" type="OptionButton" parent="Settings/Panel/VBox/LanguageRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+auto_translate_mode = 2
+
+[node name="AudioHeading" type="Label" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 9
+text = "AUDIO"
+
+[node name="MasterRow" type="HBoxContainer" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Settings/Panel/VBox/MasterRow"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Master"
+
+[node name="MasterVolume" type="HSlider" parent="Settings/Panel/VBox/MasterRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="MasterValue" type="Label" parent="Settings/Panel/VBox/MasterRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "80%"
+horizontal_alignment = 2
+
+[node name="SfxRow" type="HBoxContainer" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Settings/Panel/VBox/SfxRow"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Effects"
+
+[node name="SfxVolume" type="HSlider" parent="Settings/Panel/VBox/SfxRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="SfxValue" type="Label" parent="Settings/Panel/VBox/SfxRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "80%"
+horizontal_alignment = 2
+
+[node name="MusicRow" type="HBoxContainer" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Settings/Panel/VBox/MusicRow"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Music"
+
+[node name="MusicVolume" type="HSlider" parent="Settings/Panel/VBox/MusicRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="MusicValue" type="Label" parent="Settings/Panel/VBox/MusicRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "50%"
+horizontal_alignment = 2
+
+[node name="AmbienceRow" type="HBoxContainer" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Settings/Panel/VBox/AmbienceRow"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Ambience"
+
+[node name="AmbienceVolume" type="HSlider" parent="Settings/Panel/VBox/AmbienceRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.35
+
+[node name="AmbienceValue" type="Label" parent="Settings/Panel/VBox/AmbienceRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "35%"
+horizontal_alignment = 2
+
+[node name="VoiceRow" type="HBoxContainer" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Settings/Panel/VBox/VoiceRow"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Voice"
+
+[node name="VoiceVolume" type="HSlider" parent="Settings/Panel/VBox/VoiceRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="VoiceValue" type="Label" parent="Settings/Panel/VBox/VoiceRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "100%"
+horizontal_alignment = 2
+
+[node name="Note" type="Label" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+text = "Display, audio and save data."
+autowrap_mode = 3
+
+[node name="SaveStatus" type="Label" parent="Settings/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.329412, 0.839216, 0.541176, 1)
+theme_override_font_sizes/font_size = 9
+text = "campaign.json"
+autowrap_mode = 3
+
+[node name="SaveRow" type="HBoxContainer" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SaveNow" type="Button" parent="Settings/Panel/VBox/SaveRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "SAVE NOW"
+
+[node name="DeleteSave" type="Button" parent="Settings/Panel/VBox/SaveRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.898039, 0.282353, 0.301961, 1)
+theme_override_font_sizes/font_size = 10
+text = "CLEAR FLIGHT SAVE"
+
+[node name="ResetRow" type="HBoxContainer" parent="Settings/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Credits" type="Button" parent="Settings/Panel/VBox/ResetRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "CREDITS"
+
+[node name="ResetDefaults" type="Button" parent="Settings/Panel/VBox/ResetRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "RESET SETTINGS"
+
+[node name="Spacer" type="Control" parent="Settings/Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Close" type="Button" parent="Settings/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "CLOSE"

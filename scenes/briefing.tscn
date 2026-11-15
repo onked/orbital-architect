@@ -1,0 +1,202 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://ui/briefing_screen.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+[ext_resource type="PackedScene" path="res://scenes/components/stat_row.tscn" id="3_stat"]
+[ext_resource type="PackedScene" path="res://scenes/components/screen_header.tscn" id="4_header"]
+
+[node name="Briefing" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.0392157, 0.0627451, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 46
+theme_override_constants/margin_bottom = 22
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" parent="Margin/Root" instance=ExtResource("4_header")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Body" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+
+[node name="Story" type="PanelContainer" parent="Margin/Root/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Story"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BriefHeading" type="Label" parent="Margin/Root/Body/Story/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "MISSION BRIEF"
+
+[node name="Brief" type="Label" parent="Margin/Root/Body/Story/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 3
+text = "Briefing text"
+
+[node name="Divider" type="ColorRect" parent="Margin/Root/Body/Story/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="NotesHeading" type="Label" parent="Margin/Root/Body/Story/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "FLIGHT NOTES"
+
+[node name="Hints" type="Label" parent="Margin/Root/Body/Story/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.709804, 0.239216, 1)
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 3
+text = "Hints"
+
+[node name="FieldDivider" type="ColorRect" parent="Margin/Root/Body/Story/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="FieldHeading" type="Label" parent="Margin/Root/Body/Story/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "FIELD NOTE"
+
+[node name="FieldNote" type="Label" parent="Margin/Root/Body/Story/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 3
+text = ""
+
+[node name="Spacer" type="Control" parent="Margin/Root/Body/Story/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Side" type="VBoxContainer" parent="Margin/Root/Body"]
+custom_minimum_size = Vector2(344, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Params" type="PanelContainer" parent="Margin/Root/Body/Side"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Side/Params"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Side/Params/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "CONTRACT PARAMETERS"
+
+[node name="Funding" parent="Margin/Root/Body/Side/Params/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Funding"
+value_text = "$0"
+
+[node name="MassCap" parent="Margin/Root/Body/Side/Params/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Mass cap"
+value_text = "0 kg"
+
+[node name="Target" parent="Margin/Root/Body/Side/Params/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Target"
+value_text = "--"
+
+[node name="Divider" type="ColorRect" parent="Margin/Root/Body/Side/Params/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="PayloadHeading" type="Label" parent="Margin/Root/Body/Side/Params/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "REQUIRED PAYLOAD"
+
+[node name="Payload" type="Label" parent="Margin/Root/Body/Side/Params/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.843137, 0.890196, 0.956863, 1)
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 3
+text = "--"
+
+[node name="Objectives" type="PanelContainer" parent="Margin/Root/Body/Side"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Side/Objectives"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Side/Objectives/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "OBJECTIVES"
+
+[node name="List" type="VBoxContainer" parent="Margin/Root/Body/Side/Objectives/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Spacer" type="Control" parent="Margin/Root/Body/Side"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Proceed" type="Button" parent="Margin/Root/Body/Side"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.709804, 0.239216, 1)
+theme_override_font_sizes/font_size = 12
+text = "PROCEED TO HANGAR  >"

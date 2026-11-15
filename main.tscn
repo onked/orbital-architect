@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://rg8c6re1nxiv"]
+
+[ext_resource type="Script" uid="uid://mw7i4ebskgvu" path="res://main.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://3fshy7d5uset" path="res://ui/theme.tres" id="2_theme"]
+[ext_resource type="PackedScene" path="res://scenes/tutorial.tscn" id="3_tutorial"]
+[ext_resource type="Script" uid="uid://ouqywv0hbw2i" path="res://ui/orbital_backdrop.gd" id="4_backdrop"]
+[ext_resource type="Script" uid="uid://c67nwh1s3ph5r" path="res://ui/crt_overlay.gd" id="5_crt"]
+[ext_resource type="Script" uid="uid://yy2ngkfr4ij7" path="res://ui/achievement_popup.gd" id="6_popup"]
+[ext_resource type="Script" uid="uid://daeo6r0ynvcbr" path="res://ui/orbit_emblem.gd" id="7_emblem"]
+[ext_resource type="Script" uid="uid://fgexq7ytwn4y" path="res://ui/subtitle_overlay.gd" id="8_subtitle"]
+
+[node name="Main" type="Control" unique_id=1923095887]
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="OrbitalBackdrop" type="Control" parent="." unique_id=596533709]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_backdrop")
+
+[node name="ScreenHost" type="Control" parent="." unique_id=939044171]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CRT" type="Control" parent="." unique_id=788314197]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_crt")
+
+[node name="Tutorial" parent="." unique_id=258243987 instance=ExtResource("3_tutorial")]
+
+[node name="Toast" type="Label" parent="." unique_id=884657727]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="PanelContainer" parent="." unique_id=2147439409]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -80.0
+offset_right = 450.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("8_subtitle")
+
+[node name="SubtitleText" type="Label" parent="Subtitle" unique_id=1274006507]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.843137, 0.890196, 0.956863, 1)
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AchievementPopup" type="PanelContainer" parent="." unique_id=330843184]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -380.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = 118.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource("6_popup")
+
+[node name="Row" type="HBoxContainer" parent="AchievementPopup" unique_id=175019358]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Star" type="Control" parent="AchievementPopup/Row" unique_id=647683963]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+size_flags_vertical = 4
+script = ExtResource("7_emblem")
+
+[node name="Info" type="VBoxContainer" parent="AchievementPopup/Row" unique_id=1521593991]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+
+[node name="Kicker" type="Label" parent="AchievementPopup/Row/Info" unique_id=982134941]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.709804, 0.239216, 1)
+theme_override_font_sizes/font_size = 9
+text = "ACHIEVEMENT UNLOCKED"
+
+[node name="AchTitle" type="Label" parent="AchievementPopup/Row/Info" unique_id=1255532174]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Title"
+
+[node name="AchDetail" type="Label" parent="AchievementPopup/Row/Info" unique_id=1252545884]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+text = "Detail"
+autowrap_mode = 3

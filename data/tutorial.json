@@ -1,0 +1,114 @@
+[
+	{
+		"id": "build",
+		"screen": "hangar",
+		"node": "Suggested",
+		"title": "Reference vehicle",
+		"body": "SUGGESTED BUILD restores the reference ship. LAUNCH unlocks when checks pass.",
+		"mission": "lunar_relay"
+	},
+	{
+		"id": "tli",
+		"screen": "sim",
+		"node": "Prograde",
+		"title": "Trans-lunar injection",
+		"body": "PROGRADE 3170 m/s. EXECUTE. Typing the number is faster than dragging.",
+		"mission": "lunar_relay"
+	},
+	{
+		"id": "coast",
+		"screen": "sim",
+		"node": "Warp10000",
+		"title": "Advance time",
+		"body": "Click 10kx. Watch TARGET RANGE. Time advances only with warp.",
+		"mission": "lunar_relay"
+	},
+	{
+		"id": "capture",
+		"screen": "sim",
+		"node": "Execute",
+		"title": "Capture at closest approach",
+		"body": "Closest approach pauses the sim. AUTO-PLAN fills the capture burn. Check PERIAPSIS, then EXECUTE.",
+		"mission": "lunar_relay"
+	},
+	{
+		"id": "hints",
+		"screen": "sim",
+		"node": "BuyHint",
+		"title": "Buy a hint",
+		"body": "SOLVE -5 shows the exact burn for this phase: injection, capture, circularization or landing. Each hint costs 5 score points and trims contract payouts. NEXT cycles the free notes.",
+		"mission": "lunar_relay"
+	},
+	{
+		"id": "circular",
+		"screen": "sim",
+		"node": "Periapsis",
+		"title": "Circularize",
+		"body": "AUTO-PLAN at an apsis circularizes. Prograde at apoapsis. Retrograde at periapsis.",
+		"mission": "lunar_relay"
+	},
+	{
+		"id": "rewind",
+		"screen": "sim",
+		"node": "Rewind",
+		"title": "Rewind",
+		"body": "Checkpoints: launch, every burn, every approach, every 30 s. REWIND undoes a bad burn.",
+		"mission": "lunar_relay"
+	},
+	{
+		"id": "science",
+		"screen": "sim",
+		"node": "Transmit",
+		"title": "Transmit science",
+		"body": "Inside 30,000 km, TRANSMIT SCIENCE. Check POWER first.",
+		"mission": "lunar_relay"
+	},
+	{
+		"id": "debrief",
+		"screen": "sim",
+		"node": "End",
+		"title": "File the report",
+		"body": "END files the report. Objectives, budget and propellant score. Progress autosaves.",
+		"mission": "lunar_relay"
+	},
+	{
+		"id": "landing_ready",
+		"screen": "mainmenu",
+		"mission": "",
+		"node": "",
+		"title": "Landing practice",
+		"body": "One lesson left: a landing drill. Open LANDING PRACTICE from this screen."
+	},
+	{
+		"id": "land_build",
+		"screen": "hangar",
+		"mission": "flight_school_landing",
+		"node": "Suggested",
+		"title": "Landing drill",
+		"body": "This lander starts 2 km above the Moon, already falling. SUGGESTED BUILD restores it. LAUNCH starts the drill."
+	},
+	{
+		"id": "land_fall",
+		"screen": "sim",
+		"mission": "flight_school_landing",
+		"node": "Warp100",
+		"title": "Free fall",
+		"body": "Warp until SURFACE ALTITUDE is under 1 km. Gravity is your descent engine here."
+	},
+	{
+		"id": "land_brake",
+		"screen": "sim",
+		"mission": "flight_school_landing",
+		"node": "Prograde",
+		"title": "Final brake",
+		"body": "Set PROGRADE negative and brake. Keep RELATIVE SPEED under 40 m/s. Below 0.5 km, a full brake gives a soft touchdown."
+	},
+	{
+		"id": "land_end",
+		"screen": "sim",
+		"mission": "flight_school_landing",
+		"node": "End",
+		"title": "File the drill",
+		"body": "Touch down under 40 m/s. END files the report and completes Flight School."
+	}
+]

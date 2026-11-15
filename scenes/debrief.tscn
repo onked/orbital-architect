@@ -1,0 +1,310 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://ui/debrief_screen.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+[ext_resource type="PackedScene" path="res://scenes/components/stat_row.tscn" id="3_stat"]
+
+[node name="Debrief" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.0392157, 0.0627451, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 46
+theme_override_constants/margin_bottom = 22
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TopRow" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+
+[node name="Kicker" type="Label" parent="Margin/Root/TopRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "POST-FLIGHT"
+
+[node name="Spacer" type="Control" parent="Margin/Root/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Stamp" type="Label" parent="Margin/Root/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.435294, 0.494118, 0.576471, 1)
+theme_override_font_sizes/font_size = 10
+text = "JPL / FLIGHT REPORT"
+
+[node name="Title" type="Label" parent="Margin/Root"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "MISSION DEBRIEF"
+
+[node name="Verdict" type="Label" parent="Margin/Root"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.329412, 0.839216, 0.541176, 1)
+theme_override_font_sizes/font_size = 15
+text = "OBJECTIVES COMPLETE"
+
+[node name="Reward" type="Label" parent="Margin/Root"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.819608, 0.4, 1)
+theme_override_font_sizes/font_size = 13
+text = "GOLD MEDAL  /  +$0 CREDITS"
+
+[node name="Failure" type="Label" parent="Margin/Root"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.898039, 0.282353, 0.301961, 1)
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 3
+text = "Cause"
+
+[node name="Accent" type="ColorRect" parent="Margin/Root"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.329412, 0.839216, 0.541176, 1)
+
+[node name="Body" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="ObjectivesPanel" type="PanelContainer" parent="Margin/Root/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/ObjectivesPanel"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/ObjectivesPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "OBJECTIVE BREAKDOWN"
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root/Body/ObjectivesPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="Content" type="VBoxContainer" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Objectives" type="VBoxContainer" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="AnalysisLine" type="ColorRect" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="AnalysisHead" type="Label" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "FLIGHT ANALYSIS"
+
+[node name="Analysis" type="VBoxContainer" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 4
+
+[node name="BestRun" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content/Analysis" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Personal best"
+value_text = "--"
+
+[node name="MedalGap" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content/Analysis" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Next medal"
+value_text = "--"
+
+[node name="Missed" type="Label" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content/Analysis"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 11
+autowrap_mode = 3
+text = "All objectives logged."
+
+[node name="Telemetry" type="Label" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content/Analysis"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.435294, 0.494118, 0.576471, 1)
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 3
+text = "0 burns"
+
+[node name="FieldDivider" type="ColorRect" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="FieldHeading" type="Label" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "FIELD NOTE"
+
+[node name="FieldNote" type="Label" parent="Margin/Root/Body/ObjectivesPanel/VBox/Scroll/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 3
+text = ""
+
+[node name="ScorePanel" type="PanelContainer" parent="Margin/Root/Body"]
+custom_minimum_size = Vector2(316, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/ScorePanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/ScorePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "SCORECARD"
+
+[node name="ScoreObjectives" parent="Margin/Root/Body/ScorePanel/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Objectives"
+value_text = "0"
+
+[node name="ScoreBudget" parent="Margin/Root/Body/ScorePanel/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Budget surplus"
+value_text = "0.0"
+
+[node name="ScoreFuel" parent="Margin/Root/Body/ScorePanel/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Propellant reserve"
+value_text = "0.0"
+
+[node name="Line2" type="ColorRect" parent="Margin/Root/Body/ScorePanel/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="Total" type="Label" parent="Margin/Root/Body/ScorePanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "0 / 100"
+
+[node name="TotalCaption" type="Label" parent="Margin/Root/Body/ScorePanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 3
+text = "Cost / budget"
+
+[node name="TimeNote" type="Label" parent="Margin/Root/Body/ScorePanel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 3
+text = "Flight time / propellant left"
+
+[node name="ScoringNote" type="Label" parent="Margin/Root/Body/ScorePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.435294, 0.494118, 0.576471, 1)
+theme_override_font_sizes/font_size = 9
+autowrap_mode = 3
+text = "Objectives: mission points. Budget: 15 x unspent share. Propellant: 10 x fuel remaining."
+
+[node name="Spacer" type="Control" parent="Margin/Root/Body/ScorePanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Line3" type="ColorRect" parent="Margin/Root"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="Actions" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Redesign" type="Button" parent="Margin/Root/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "REDESIGN VEHICLE"
+
+[node name="FlyAgain" type="Button" parent="Margin/Root/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "FLY AGAIN"
+
+[node name="Spacer" type="Control" parent="Margin/Root/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Next" type="Button" parent="Margin/Root/Actions"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(184, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 12
+text = "NEXT CONTRACT  >"
+
+[node name="Control" type="Button" parent="Margin/Root/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(208, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.709804, 0.239216, 1)
+theme_override_font_sizes/font_size = 12
+text = "RETURN TO CONTROL  >"

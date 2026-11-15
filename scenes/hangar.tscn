@@ -1,0 +1,336 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://ui/hangar_screen.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+[ext_resource type="PackedScene" path="res://scenes/components/stat_row.tscn" id="3_stat"]
+[ext_resource type="PackedScene" path="res://scenes/components/screen_header.tscn" id="4_header"]
+
+[node name="Hangar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.0392157, 0.0627451, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TopBar" type="PanelContainer" parent="Margin/Root"]
+layout_mode = 2
+
+[node name="Row" type="HBoxContainer" parent="Margin/Root/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" parent="Margin/Root/TopBar/Row" instance=ExtResource("4_header")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Body" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Catalogue" type="PanelContainer" parent="Margin/Root/Body"]
+custom_minimum_size = Vector2(296, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Catalogue"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Head" type="HBoxContainer" parent="Margin/Root/Body/Catalogue/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Catalogue/VBox/Head"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "PARTS CATALOGUE"
+
+[node name="Spacer" type="Control" parent="Margin/Root/Body/Catalogue/VBox/Head"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Hint" type="Label" parent="Margin/Root/Body/Catalogue/VBox/Head"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.435294, 0.494118, 0.576471, 1)
+theme_override_font_sizes/font_size = 9
+text = "CLICK TO PAINT"
+
+[node name="Tabs" type="HBoxContainer" parent="Margin/Root/Body/Catalogue/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="All" type="Button" parent="Margin/Root/Body/Catalogue/VBox/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+flat = true
+text = "ALL"
+
+[node name="Structure" type="Button" parent="Margin/Root/Body/Catalogue/VBox/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+flat = true
+text = "STRUCT"
+
+[node name="Propulsion" type="Button" parent="Margin/Root/Body/Catalogue/VBox/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+flat = true
+text = "PROP"
+
+[node name="Power" type="Button" parent="Margin/Root/Body/Catalogue/VBox/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+flat = true
+text = "POWER"
+
+[node name="CommsTab" type="Button" parent="Margin/Root/Body/Catalogue/VBox/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+flat = true
+text = "COMMS"
+
+[node name="ScienceTab" type="Button" parent="Margin/Root/Body/Catalogue/VBox/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+flat = true
+text = "SCI"
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root/Body/Catalogue/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="PartList" type="VBoxContainer" parent="Margin/Root/Body/Catalogue/VBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Bay" type="PanelContainer" parent="Margin/Root/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Bay"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Head" type="HBoxContainer" parent="Margin/Root/Body/Bay/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Bay/VBox/Head"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "VEHICLE BAY"
+
+[node name="Spacer" type="Control" parent="Margin/Root/Body/Bay/VBox/Head"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Slots" type="Label" parent="Margin/Root/Body/Bay/VBox/Head"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "PARTS 0 / 0"
+
+[node name="SlotBar" type="ProgressBar" parent="Margin/Root/Body/Bay/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+max_value = 1.0
+show_percentage = false
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root/Body/Bay/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="BayList" type="GridContainer" parent="Margin/Root/Body/Bay/VBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 4
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+theme_override_constants/separation = 5
+
+[node name="Footer" type="HBoxContainer" parent="Margin/Root/Body/Bay/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Suggested" type="Button" parent="Margin/Root/Body/Bay/VBox/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "SUGGESTED BUILD"
+
+[node name="Clear" type="Button" parent="Margin/Root/Body/Bay/VBox/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "CLEAR"
+
+[node name="FooterSpacer" type="Control" parent="Margin/Root/Body/Bay/VBox/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="FooterHint" type="Label" parent="Margin/Root/Body/Bay/VBox/Footer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.435294, 0.494118, 0.576471, 1)
+theme_override_font_sizes/font_size = 9
+text = "DRAG TO MOVE  /  R ROTATE  /  RIGHT-CLICK ERASE  /  CTRL+S SAVE"
+
+[node name="Stats" type="PanelContainer" parent="Margin/Root/Body"]
+custom_minimum_size = Vector2(322, 0)
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root/Body/Stats"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Stats/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Stats/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "ENGINEERING READOUT"
+
+[node name="DeltaV" type="Label" parent="Margin/Root/Body/Stats/Scroll/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.329412, 0.839216, 0.541176, 1)
+theme_override_font_sizes/font_size = 32
+text = "0 m/s"
+
+[node name="DeltaVCaption" type="Label" parent="Margin/Root/Body/Stats/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.435294, 0.494118, 0.576471, 1)
+theme_override_font_sizes/font_size = 9
+autowrap_mode = 3
+text = "available delta-v = Isp x g0 x ln(wet/dry)"
+
+[node name="D1" type="ColorRect" parent="Margin/Root/Body/Stats/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="DryMass" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Dry mass"
+value_text = "0 kg"
+
+[node name="Propellant" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Propellant"
+value_text = "0 kg"
+
+[node name="WetMass" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Wet mass"
+value_text = "0 kg"
+
+[node name="Thrust" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Thrust"
+value_text = "0 N"
+
+[node name="Twr" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "TWR (1 g)"
+value_text = "0.00"
+
+[node name="D2" type="ColorRect" parent="Margin/Root/Body/Stats/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="Cost" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Cost"
+value_text = "$0"
+
+[node name="BudgetLeft" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Budget left"
+value_text = "$0"
+
+[node name="D3" type="ColorRect" parent="Margin/Root/Body/Stats/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="PowerSun" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Power @ 1 AU"
+value_text = "0 W"
+
+[node name="PowerTarget" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Power at target"
+value_text = "0 W"
+
+[node name="Science" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Science payloads"
+value_text = "0"
+
+[node name="Comms" parent="Margin/Root/Body/Stats/Scroll/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+name_text = "Comms level"
+value_text = "0"
+
+[node name="Gap" type="Control" parent="Margin/Root/Body/Stats/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Status" type="Label" parent="Margin/Root/Body/Stats/Scroll/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.329412, 0.839216, 0.541176, 1)
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 3
+text = "ALL CHECKS PASSED"

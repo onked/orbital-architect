@@ -1,0 +1,202 @@
+{
+  "_source": "JPL Solar System Dynamics 'Approximate Positions of the Planets' (Standish & Williams), NASA NSSDCA Planetary Fact Sheet (2026). Orbital elements are J2000 mean ecliptic; rates are per Julian century. Moon elements are geocentric mean elements. Earth is approximated by the Earth-Moon barycenter elements.",
+  "_units": "mu: m^3/s^2, radius/soi/scale_height: m, a_au: astronomical units, angles: degrees",
+  "epoch": {
+	"j2000_jd": 2451545.0,
+	"mission_start_days_since_j2000": 9801.54
+  },
+  "bodies": [
+	{
+	  "id": "sun",
+	  "name": "Sun",
+	  "parent": "",
+	  "mu": 1.32712440018e20,
+	  "radius_m": 696340000.0,
+	  "soi_m": 0.0,
+	  "color": "#ffc93c",
+	  "symbol_px": 26.0,
+	  "art": "body_sun",
+	  "elements": null
+	},
+	{
+	  "id": "mercury",
+	  "name": "Mercury",
+	  "parent": "sun",
+	  "mu": 22032000000000.0,
+	  "radius_m": 2439700.0,
+	  "soi_m": 112000000.0,
+	  "color": "#b9b2a7",
+	  "symbol_px": 5.0,
+	  "art": "body_mercury",
+	  "elements": {
+		"a_au": 0.38709927, "e": 0.20563593, "i_deg": 7.00497902,
+		"L_deg": 252.2503235, "peri_deg": 77.45779628, "node_deg": 48.33076593,
+		"rates": {"a_au": 0.00000037, "e": 0.00001906, "i_deg": -0.00594749, "L_deg": 149472.67411175, "peri_deg": 0.16047689, "node_deg": -0.12534081}
+	  }
+	},
+	{
+	  "id": "venus",
+	  "name": "Venus",
+	  "parent": "sun",
+	  "mu": 324859000000000.0,
+	  "radius_m": 6051800.0,
+	  "soi_m": 616000000.0,
+	  "color": "#e8c07a",
+	  "symbol_px": 8.0,
+	  "art": "body_venus",
+	  "elements": {
+		"a_au": 0.72333566, "e": 0.00677672, "i_deg": 3.39467605,
+		"L_deg": 181.9790995, "peri_deg": 131.60246718, "node_deg": 76.67984255,
+		"rates": {"a_au": 0.0000039, "e": -0.00004107, "i_deg": -0.0007889, "L_deg": 58517.81538729, "peri_deg": 0.00268329, "node_deg": -0.27769418}
+	  }
+	},
+	{
+	  "id": "earth",
+	  "name": "Earth",
+	  "parent": "sun",
+	  "mu": 398600441800000.0,
+	  "radius_m": 6371000.0,
+	  "soi_m": 924000000.0,
+	  "atmosphere_top_m": 120000.0,
+	  "scale_height_m": 8500.0,
+	  "color": "#4fa8ff",
+	  "symbol_px": 12.0,
+	  "art": "body_earth",
+	  "elements": {
+		"a_au": 1.00000261, "e": 0.01671123, "i_deg": -0.00001531,
+		"L_deg": 100.46457166, "peri_deg": 102.93768193, "node_deg": 0.0,
+		"rates": {"a_au": 0.00000562, "e": -0.00004392, "i_deg": -0.01294668, "L_deg": 35999.37244981, "peri_deg": 0.32327364, "node_deg": 0.0}
+	  }
+	},
+	{
+	  "id": "moon",
+	  "name": "Moon",
+	  "parent": "earth",
+	  "mu": 4904869500000.0,
+	  "radius_m": 1737400.0,
+	  "soi_m": 66100000.0,
+	  "color": "#cfcfcf",
+	  "symbol_px": 5.0,
+	  "art": "body_moon",
+	  "elements": {
+		"a_km": 384399.0, "e": 0.0549006, "i_deg": 5.145396,
+		"L_deg": 218.3164477, "peri_deg": 83.3532465, "node_deg": 125.0445479,
+		"rates": {"a_km": 0.0, "e": 0.0, "i_deg": 0.0, "L_deg": 481267.88123421, "peri_deg": 4069.0137287, "node_deg": -1934.13628872}
+	  }
+	},
+	{
+	  "id": "mars",
+	  "name": "Mars",
+	  "parent": "sun",
+	  "mu": 42849000000000.0,
+	  "radius_m": 3389500.0,
+	  "soi_m": 576000000.0,
+	  "atmosphere_top_m": 120000.0,
+	  "scale_height_m": 11100.0,
+	  "color": "#e2703a",
+	  "symbol_px": 7.0,
+	  "art": "body_mars",
+	  "elements": {
+		"a_au": 1.52371034, "e": 0.0933941, "i_deg": 1.84969142,
+		"L_deg": -4.55343205, "peri_deg": -23.94362959, "node_deg": 49.55953891,
+		"rates": {"a_au": 0.00001847, "e": 0.00007882, "i_deg": -0.00813131, "L_deg": 19140.30268499, "peri_deg": 0.44441088, "node_deg": -0.29257343}
+	  }
+	},
+	{
+	  "id": "jupiter",
+	  "name": "Jupiter",
+	  "parent": "sun",
+	  "mu": 126686534000000000.0,
+	  "radius_m": 69911000.0,
+	  "soi_m": 48200000000.0,
+	  "color": "#d9a066",
+	  "symbol_px": 16.0,
+	  "art": "body_jupiter",
+	  "elements": {
+		"a_au": 5.202887, "e": 0.04838624, "i_deg": 1.30439695,
+		"L_deg": 34.39644051, "peri_deg": 14.72847983, "node_deg": 100.47390909,
+		"rates": {"a_au": -0.00011607, "e": -0.00013253, "i_deg": -0.00183714, "L_deg": 3034.74612775, "peri_deg": 0.21252668, "node_deg": 0.20469106}
+	  }
+	},
+	{
+	  "id": "saturn",
+	  "name": "Saturn",
+	  "parent": "sun",
+	  "mu": 37931187000000000.0,
+	  "radius_m": 58232000.0,
+	  "soi_m": 54600000000.0,
+	  "color": "#e3cfa8",
+	  "symbol_px": 14.0,
+	  "art": "body_saturn",
+	  "elements": {
+		"a_au": 9.53667594, "e": 0.05386179, "i_deg": 2.48599187,
+		"L_deg": 49.95424423, "peri_deg": 92.59887831, "node_deg": 113.66242448,
+		"rates": {"a_au": -0.0012506, "e": -0.00050991, "i_deg": 0.00193609, "L_deg": 1222.49362201, "peri_deg": -0.41897216, "node_deg": -0.28867794}
+	  }
+	},
+	{
+	  "id": "uranus",
+	  "name": "Uranus",
+	  "parent": "sun",
+	  "mu": 5793939000000000.0,
+	  "radius_m": 25362000.0,
+	  "soi_m": 51800000000.0,
+	  "color": "#9fe3e8",
+	  "symbol_px": 10.0,
+	  "art": "body_uranus",
+	  "elements": {
+		"a_au": 19.18916464, "e": 0.04725744, "i_deg": 0.77263783,
+		"L_deg": 313.23810451, "peri_deg": 170.9542763, "node_deg": 74.01692503,
+		"rates": {"a_au": -0.00196176, "e": -0.00004397, "i_deg": -0.00242939, "L_deg": 428.48202785, "peri_deg": 0.40805281, "node_deg": 0.04240589}
+	  }
+	},
+	{
+	  "id": "neptune",
+	  "name": "Neptune",
+	  "parent": "sun",
+	  "mu": 6836529000000000.0,
+	  "radius_m": 24622000.0,
+	  "soi_m": 86800000000.0,
+	  "color": "#5b7cff",
+	  "symbol_px": 10.0,
+	  "art": "body_neptune",
+	  "elements": {
+		"a_au": 30.06992276, "e": 0.00859048, "i_deg": 1.77004347,
+		"L_deg": -55.12002969, "peri_deg": 44.96476227, "node_deg": 131.78422574,
+		"rates": {"a_au": 0.00026291, "e": 0.00005105, "i_deg": 0.00035372, "L_deg": 218.45945325, "peri_deg": -0.32241464, "node_deg": -0.00508664}
+	  }
+	},
+	{
+	  "id": "europa",
+	  "name": "Europa",
+	  "parent": "jupiter",
+	  "mu": 3202700000000.0,
+	  "radius_m": 1560800.0,
+	  "soi_m": 96000000.0,
+	  "color": "#cfc7b4",
+	  "symbol_px": 4.0,
+	  "art": "body_moon",
+	  "elements": {
+		"a_km": 671034.0, "e": 0.0094, "i_deg": 0.466,
+		"L_deg": 245.2, "peri_deg": 88.97, "node_deg": 219.1,
+		"rates": {"a_km": 0.0, "e": 0.0, "i_deg": 0.0, "L_deg": 101.37, "peri_deg": 0.0, "node_deg": 0.0}
+	  }
+	},
+	{
+	  "id": "psyche",
+	  "name": "16 Psyche",
+	  "parent": "sun",
+	  "mu": 1530000.0,
+	  "radius_m": 111000.0,
+	  "soi_m": 4600000.0,
+	  "color": "#9b8f7e",
+	  "symbol_px": 3.0,
+	  "art": "body_moon",
+	  "elements": {
+		"a_au": 2.9224, "e": 0.1346, "i_deg": 3.10,
+		"L_deg": 178.0, "peri_deg": 227.0, "node_deg": 150.0,
+		"rates": {"a_au": 0.0, "e": 0.0, "i_deg": 0.0, "L_deg": 0.197, "peri_deg": 0.0, "node_deg": 0.0}
+	  }
+	}
+  ]
+}

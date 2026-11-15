@@ -1,0 +1,107 @@
+[
+	{
+		"id": "tutorial_build",
+		"kind": "tutorial",
+		"text": "Welcome to Orbit Architect. Reference vehicle. SUGGESTED BUILD restores the reference ship. LAUNCH unlocks when checks pass."
+	},
+	{
+		"id": "tutorial_tli",
+		"kind": "tutorial",
+		"text": "Trans-lunar injection. Prograde three thousand one hundred seventy meters per second. Execute. Typing the number is faster than dragging."
+	},
+	{
+		"id": "tutorial_coast",
+		"kind": "tutorial",
+		"text": "Advance time. Click ten K X. Watch target range. Time advances only with warp."
+	},
+	{
+		"id": "tutorial_capture",
+		"kind": "tutorial",
+		"text": "Capture at closest approach. Closest approach pauses the sim. Auto-plan fills the capture burn. Check periapsis, then execute."
+	},
+	{
+		"id": "tutorial_hints",
+		"kind": "tutorial",
+		"text": "Buy a hint. Solve minus five shows the exact burn for this phase: injection, capture, circularization, or landing. Each hint costs five score points and trims contract payouts. Next cycles the free notes."
+	},
+	{
+		"id": "tutorial_circular",
+		"kind": "tutorial",
+		"text": "Circularize. Auto-plan at an apsis circularizes. Prograde at apoapsis. Retrograde at periapsis."
+	},
+	{
+		"id": "tutorial_rewind",
+		"kind": "tutorial",
+		"text": "Rewind. Checkpoints: launch, every burn, every approach, every thirty seconds. Rewind undoes a bad burn."
+	},
+	{
+		"id": "tutorial_science",
+		"kind": "tutorial",
+		"text": "Transmit science. Inside thirty thousand kilometers, transmit science. Check power first."
+	},
+	{
+		"id": "tutorial_debrief",
+		"kind": "tutorial",
+		"text": "File the report. End files the report. Objectives, budget, and propellant score. Progress autosaves."
+	},
+	{
+		"id": "briefing_lunar_relay",
+		"kind": "briefing",
+		"text": "Lunar Relay. Put a relay orbiter around the Moon. It has to stay, not fly past. Launch from two hundred kilometers Earth orbit. Raise apoapsis to lunar distance, then capture at closest approach. Budget eighty five million dollars. Mass cap one thousand eight hundred kilograms."
+	},
+	{
+		"id": "briefing_jezero_descent",
+		"kind": "briefing",
+		"text": "Jezero Descent. Land a one thousand twenty five kilogram rover in Jezero Crater. Wait for an Earth Mars window. Fit the ablative shield before arrival. Mars gets forty three percent of Earth's sunlight. Plan power for that."
+	},
+	{
+		"id": "briefing_metal_world",
+		"kind": "briefing",
+		"text": "Metal World. Rendezvous with sixteen Psyche and map its magnetic field. Two point nine A U out. Solar output is under a tenth of Earth's. Ion drive: high I S P, low thrust. Long spirals."
+	},
+	{
+		"id": "briefing_europa_clipper",
+		"kind": "briefing",
+		"text": "Europa Clipper. Five close flybys of Europa, inside Jupiter's radiation belts. Five point two A U: solar is dead weight. Bring R T Gs. Aim perijove to thread Europa's orbit."
+	},
+	{
+		"id": "briefing_outer_grand_tour",
+		"kind": "briefing",
+		"text": "Outer Grand Tour. Jupiter flyby, Saturn capture, probe release at Titan. Gravity assists are the only affordable route. Nine point five A U: R T Gs mandatory, solar dead weight."
+	},
+	{
+		"id": "verdict_success",
+		"kind": "verdict",
+		"text": "Objectives complete. Contract filed."
+	},
+	{
+		"id": "verdict_failure",
+		"kind": "verdict",
+		"text": "Mission incomplete. Debrief follows."
+	},
+	{
+		"id": "callout_approach",
+		"kind": "callout",
+		"text": "Closest approach. Capture window open."
+	},
+	{
+		"id": "callout_impact",
+		"kind": "callout",
+		"text": "Impact trajectory. Rewind, or raise periapsis."
+	},
+	{
+		"id": "callout_achievement",
+		"kind": "callout",
+		"text": "Achievement unlocked."
+	},
+	{
+		"id": "callout_school",
+		"kind": "callout",
+		"text": "Flight School complete. Good flying."
+	},
+	{
+		"id": "callout_contract",
+		"kind": "callout",
+		"text": "Contract accepted. Good luck."
+	}
+]

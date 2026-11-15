@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/components/screen_header.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+
+[node name="ScreenHeader" type="VBoxContainer"]
+theme = ExtResource("2_theme")
+theme_override_constants/separation = 4
+script = ExtResource("1_script")
+
+[node name="TopRow" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Back" type="Button" parent="TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 11
+flat = true
+text = "< BACK"
+
+[node name="Spacer" type="Control" parent="TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Code" type="Label" parent="TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "M-00 / CLASS"
+
+[node name="MainRow" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Titles" type="VBoxContainer" parent="MainRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="MainRow/Titles"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "SCREEN"
+
+[node name="Meta" type="Label" parent="MainRow/Titles"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 11
+text = "Meta"
+autowrap_mode = 3
+
+[node name="Action" type="Button" parent="MainRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(168, 44)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.709804, 0.239216, 1)
+theme_override_font_sizes/font_size = 12
+text = "LAUNCH  >"
+
+[node name="Accent" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.207843, 0.815686, 0.878431, 1)

@@ -1,0 +1,148 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://ui/credits_screen.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+[ext_resource type="PackedScene" path="res://scenes/components/screen_header.tscn" id="3_header"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.0392157, 0.0627451, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 46
+theme_override_constants/margin_bottom = 22
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" parent="Margin/Root" instance=ExtResource("3_header")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="Body" type="VBoxContainer" parent="Margin/Root/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Audio" type="Label" parent="Margin/Root/Scroll/Body"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "AUDIO"
+
+[node name="AudioText" type="Label" parent="Margin/Root/Scroll/Body"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Music: \"Light Years\" and \"Cold Moon\" by Eric Matyas - www.soundimage.org.\nFree to use with in-game attribution.\nVoice lines: AI-generated with Fish Audio S2.1 Pro Free.\nKenney - UI Audio (51 sounds)
+Kenney - Interface Sounds (100 sounds)
+Kenney - Sci-Fi Sounds (73 sounds)
+License: CC0 1.0 Universal. Attribution not required; listed as a courtesy.
+kenney.nl/assets"
+autowrap_mode = 3
+
+[node name="AudioDivider" type="ColorRect" parent="Margin/Root/Scroll/Body"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="SI" type="Label" parent="Margin/Root/Scroll/Body"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "SI / BUILD DISCLOSURE"
+
+[node name="SIText" type="Label" parent="Margin/Root/Scroll/Body"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Code and text: developed with AI coding assistants (OpenCode / OpenRouter, including DeepSeek models), then reviewed, tested and adapted by the team.
+Audio: voice lines are SI-generated with Fish Audio S2.1 Pro Free. Disclosure tags are embedded in the MP3 metadata.
+Images and video: no SI-generated assets. All pixel art and visual assets were created for this project.
+Data: NASA/JPL public data; scientific values are not SI-generated.
+Orbit Architect is an independent Space Apps submission and is not affiliated with or endorsed by NASA.
+NASA and mission names are used for educational context only."
+autowrap_mode = 3
+
+[node name="SIDivider" type="ColorRect" parent="Margin/Root/Scroll/Body"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="Data" type="Label" parent="Margin/Root/Scroll/Body"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "DATA"
+
+[node name="DataText" type="Label" parent="Margin/Root/Scroll/Body"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "NASA NSSDCA Planetary Fact Sheet - masses, radii and gravity.
+JPL, Approximate Positions of the Planets - Keplerian elements and rates.
+Planet sprites are generated pixel art produced for this project."
+autowrap_mode = 3
+
+[node name="DataDivider" type="ColorRect" parent="Margin/Root/Scroll/Body"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="Engine" type="Label" parent="Margin/Root/Scroll/Body"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "ENGINE AND TYPE"
+
+[node name="EngineText" type="Label" parent="Margin/Root/Scroll/Body"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Godot Engine 4.7 - MIT License.
+Noto Sans - SIL Open Font License 1.1 (Godot default theme font)."
+autowrap_mode = 3
+
+[node name="EngineDivider" type="ColorRect" parent="Margin/Root/Scroll/Body"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="Project" type="Label" parent="Margin/Root/Scroll/Body"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "PROJECT"
+
+[node name="ProjectText" type="Label" parent="Margin/Root/Scroll/Body"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Orbit Architect - built for the NASA International Space Apps Challenge 2026.
+2D orbital mechanics, spacecraft assembly and mission design."
+autowrap_mode = 3

@@ -1,0 +1,4 @@
+[
+	{ "code": "en", "name": "English" },
+	{ "code": "me", "name": "Crnogorski", "file": "res://locale/me.json" }
+]

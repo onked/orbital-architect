@@ -1,0 +1,80 @@
+{
+	"version": 1,
+	"textures": {
+		"body_sun": {
+			"sheet": "res://assets/art/generated/body_sun.png",
+			"frames": 50,
+			"fps": 6
+		},
+		"body_mercury": {
+			"sheet": "res://assets/art/generated/body_mercury.png",
+			"frames": 50,
+			"fps": 8
+		},
+		"body_venus": {
+			"sheet": "res://assets/art/generated/body_venus.png",
+			"frames": 50,
+			"fps": 8
+		},
+		"body_earth": {
+			"sheet": "res://assets/art/generated/body_earth.png",
+			"frames": 50,
+			"fps": 8
+		},
+		"body_moon": {
+			"sheet": "res://assets/art/generated/body_moon.png",
+			"frames": 50,
+			"fps": 8
+		},
+		"body_mars": {
+			"sheet": "res://assets/art/generated/body_mars.png",
+			"frames": 50,
+			"fps": 8
+		},
+		"body_jupiter": {
+			"sheet": "res://assets/art/generated/body_jupiter.png",
+			"frames": 50,
+			"fps": 10
+		},
+		"body_saturn": {
+			"sheet": "res://assets/art/generated/body_saturn.png",
+			"frames": 50,
+			"fps": 10
+		},
+		"body_uranus": {
+			"sheet": "res://assets/art/generated/body_uranus.png",
+			"frames": 50,
+			"fps": 8
+		},
+		"body_neptune": {
+			"sheet": "res://assets/art/generated/body_neptune.png",
+			"frames": 50,
+			"fps": 8
+		},
+		"craft_ship": "res://assets/art/generated/craft_ship.png",
+		"icon_core": "res://assets/art/generated/icon_core.png",
+		"icon_ring": "res://assets/art/generated/icon_ring.png",
+		"icon_hull": "res://assets/art/generated/icon_hull_a.png",
+		"icon_shield": "res://assets/art/generated/icon_shield.png",
+		"icon_tank": "res://assets/art/generated/icon_tank.png",
+		"icon_engine_chem": "res://assets/art/generated/icon_engine_chem.png",
+		"icon_engine_ion": "res://assets/art/generated/icon_engine_ion.png",
+		"icon_solar": "res://assets/art/generated/icon_solar.png",
+		"icon_rtg": "res://assets/art/generated/icon_rtg.png",
+		"icon_dish": "res://assets/art/generated/icon_dish.png",
+		"icon_science": "res://assets/art/generated/icon_science.png",
+		"icon_structure": "res://assets/art/generated/icon_core.png",
+		"icon_propulsion": "res://assets/art/generated/icon_tank.png",
+		"icon_power": "res://assets/art/generated/icon_solar.png",
+		"icon_comms": "res://assets/art/generated/icon_dish.png",
+		"icon_hull_a": "res://assets/art/generated/icon_hull_a.png",
+		"icon_hull_b": "res://assets/art/generated/icon_hull_b.png",
+		"icon_hull_c": "res://assets/art/generated/icon_hull_c.png",
+		"logo_mark": "res://assets/art/generated/logo_mark.png",
+		"logo_mark_anim": {
+			"sheet": "res://assets/art/generated/logo_mark_anim.png",
+			"frames": 8,
+			"fps": 8
+		}
+	}
+}

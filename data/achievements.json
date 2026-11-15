@@ -1,0 +1,177 @@
+[
+	{
+		"id": "first_flight",
+		"name": "First Flight",
+		"desc": "File a flight report.",
+		"kind": "flights",
+		"value": 1
+	},
+	{
+		"id": "first_contract",
+		"name": "Contractor",
+		"desc": "Complete one sandbox contract.",
+		"kind": "contracts",
+		"value": 1
+	},
+	{
+		"id": "lunar",
+		"name": "Lunar Architect",
+		"desc": "Clear Lunar Relay.",
+		"kind": "mission",
+		"value": "lunar_relay"
+	},
+	{
+		"id": "mars",
+		"name": "Red Planet",
+		"desc": "Clear Jezero Descent.",
+		"kind": "mission",
+		"value": "jezero_descent"
+	},
+	{
+		"id": "outer",
+		"name": "Grand Tour",
+		"desc": "Clear Outer Grand Tour.",
+		"kind": "mission",
+		"value": "outer_grand_tour"
+	},
+	{
+		"id": "gold",
+		"name": "Gold Standard",
+		"desc": "Earn a gold medal.",
+		"kind": "gold",
+		"value": ""
+	},
+	{
+		"id": "five_contracts",
+		"name": "Agency",
+		"desc": "Complete five sandbox contracts.",
+		"kind": "contracts",
+		"value": 5
+	},
+	{
+		"id": "millionaire",
+		"name": "Funded",
+		"desc": "Hold $50M in funds.",
+		"kind": "credits",
+		"value": 50000000
+	},
+	{
+		"id": "clean",
+		"name": "Self-Taught",
+		"desc": "Clear a mission without buying hints.",
+		"kind": "no_hints",
+		"value": ""
+	},
+	{
+		"id": "survivor",
+		"name": "Learning Curve",
+		"desc": "File a failed report.",
+		"kind": "failures",
+		"value": 1
+	},
+	{
+		"id": "europa",
+		"name": "Jovian Systems",
+		"desc": "Clear Europa Clipper.",
+		"kind": "mission",
+		"value": "europa_clipper"
+	},
+	{
+		"id": "metal",
+		"name": "Metal World",
+		"desc": "Clear Metal World.",
+		"kind": "mission",
+		"value": "metal_world"
+	},
+	{
+		"id": "silver",
+		"name": "Silver Lining",
+		"desc": "Earn a silver medal.",
+		"kind": "medal",
+		"value": "SILVER"
+	},
+	{
+		"id": "bronze",
+		"name": "Bronze Age",
+		"desc": "Earn a bronze medal.",
+		"kind": "medal",
+		"value": "BRONZE"
+	},
+	{
+		"id": "ten_contracts",
+		"name": "Agency Director",
+		"desc": "Complete ten sandbox contracts.",
+		"kind": "contracts",
+		"value": 10
+	},
+	{
+		"id": "tycoon",
+		"name": "Tycoon",
+		"desc": "Hold $100M in funds.",
+		"kind": "credits",
+		"value": 100000000
+	},
+	{
+		"id": "crash_course",
+		"name": "Crash Course",
+		"desc": "File three failed reports.",
+		"kind": "failures",
+		"value": 3
+	},
+	{
+		"id": "all_missions",
+		"name": "Orbit Architect",
+		"desc": "Clear all five campaign missions.",
+		"kind": "all_missions",
+		"value": ""
+	},
+	{
+		"id": "prodigy",
+		"name": "Perfect Flight",
+		"desc": "Score 100 on any contract.",
+		"kind": "perfect",
+		"value": ""
+	},
+	{
+		"id": "gold_rush",
+		"name": "Gold Rush",
+		"desc": "Earn three gold medals.",
+		"kind": "gold_count",
+		"value": 3
+	},
+	{
+		"id": "tier3",
+		"name": "Deep Space",
+		"desc": "Clear a tier 3 sandbox contract.",
+		"kind": "tier",
+		"value": 3
+	},
+	{
+		"id": "landfall",
+		"name": "Landfall",
+		"desc": "Complete a landing contract.",
+		"kind": "landings",
+		"value": 1
+	},
+	{
+		"id": "tinkerer",
+		"name": "Tinkerer",
+		"desc": "Save five vehicle designs.",
+		"kind": "designs",
+		"value": 5
+	},
+	{
+		"id": "graduate",
+		"name": "Graduate",
+		"desc": "Finish Flight School.",
+		"kind": "tutorial",
+		"value": ""
+	},
+	{
+		"id": "rewind",
+		"name": "Second Chance",
+		"desc": "Use REWIND once.",
+		"kind": "rewinds",
+		"value": 1
+	}
+]

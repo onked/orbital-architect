@@ -1,0 +1,299 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+[ext_resource type="PackedScene" path="res://scenes/components/stat_row.tscn" id="3_stat"]
+[ext_resource type="Script" path="res://ui/orbit_emblem.gd" id="4_emblem"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brand"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 18.0
+content_margin_bottom = 12.0
+bg_color = Color(0.0470588, 0.0705882, 0.109804, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.156863, 0.203922, 0.278431, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_side"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.0431373, 0.0627451, 0.0941176, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.117647, 0.160784, 0.227451, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.0392157, 0.0627451, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 38
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 38
+theme_override_constants/margin_bottom = 22
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="HeaderBar" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Brand" type="PanelContainer" parent="Margin/Root/HeaderBar"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_brand")
+
+[node name="BrandRow" type="HBoxContainer" parent="Margin/Root/HeaderBar/Brand"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Emblem" type="Control" parent="Margin/Root/HeaderBar/Brand/BrandRow"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+script = ExtResource("4_emblem")
+
+[node name="Titles" type="VBoxContainer" parent="Margin/Root/HeaderBar/Brand/BrandRow"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Kicker" type="Label" parent="Margin/Root/HeaderBar/Brand/BrandRow/Titles"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "NASA SPACE APPS 2026  /  SPACE MISSION DESIGN"
+
+[node name="Title" type="Label" parent="Margin/Root/HeaderBar/Brand/BrandRow/Titles"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "ORBIT ARCHITECT"
+
+[node name="Subtitle" type="Label" parent="Margin/Root/HeaderBar/Brand/BrandRow/Titles"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 12
+text = "2D orbital mechanics and spacecraft engineering"
+
+[node name="Spacer" type="Control" parent="Margin/Root/HeaderBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Actions" type="VBoxContainer" parent="Margin/Root/HeaderBar"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Root/HeaderBar/Actions"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Home" type="Button" parent="Margin/Root/HeaderBar/Actions/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(88, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "< HOME"
+
+[node name="Accent" type="ColorRect" parent="Margin/Root"]
+custom_minimum_size = Vector2(56, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.207843, 0.815686, 0.878431, 1)
+
+[node name="Body" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Missions" type="VBoxContainer" parent="Margin/Root/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="HeadingRow" type="HBoxContainer" parent="Margin/Root/Body/Missions"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Missions/HeadingRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+text = "ACTIVE CONTRACTS"
+
+[node name="HeadingLine" type="ColorRect" parent="Margin/Root/Body/Missions/HeadingRow"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+color = Color(0.141176, 0.196078, 0.266667, 1)
+
+[node name="Count" type="Label" parent="Margin/Root/Body/Missions/HeadingRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+text = "05"
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root/Body/Missions"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="MissionList" type="VBoxContainer" parent="Margin/Root/Body/Missions/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Sidebar" type="VBoxContainer" parent="Margin/Root/Body"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StatusPanel" type="PanelContainer" parent="Margin/Root/Body/Sidebar"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_side")
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Sidebar/StatusPanel"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Sidebar/StatusPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "CAMPAIGN STATUS"
+
+[node name="Cleared" parent="Margin/Root/Body/Sidebar/StatusPanel/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Contracts cleared"
+value_text = "0 / 5"
+value_color = Color(0.207843, 0.815686, 0.878431, 1)
+
+[node name="NextUp" parent="Margin/Root/Body/Sidebar/StatusPanel/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Next assignment"
+value_text = "--"
+value_color = Color(1, 0.709804, 0.239216, 1)
+
+[node name="Divider" type="ColorRect" parent="Margin/Root/Body/Sidebar/StatusPanel/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.141176, 0.196078, 0.266667, 1)
+
+[node name="Note" type="Label" parent="Margin/Root/Body/Sidebar/StatusPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 11
+text = "JPL Keplerian elements. NASA NSSDCA physical data."
+autowrap_mode = 3
+
+[node name="DataPanel" type="PanelContainer" parent="Margin/Root/Body/Sidebar"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_side")
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Sidebar/DataPanel"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Sidebar/DataPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "LIVE DATA"
+
+[node name="Bodies" parent="Margin/Root/Body/Sidebar/DataPanel/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Bodies in field"
+value_text = "12"
+
+[node name="Parts" parent="Margin/Root/Body/Sidebar/DataPanel/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Parts catalogue"
+value_text = "15"
+
+[node name="Epoch" parent="Margin/Root/Body/Sidebar/DataPanel/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Launch epoch"
+
+[node name="Credits" parent="Margin/Root/Body/Sidebar/DataPanel/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Career credits"
+value_text = "$0"
+
+[node name="Medals" parent="Margin/Root/Body/Sidebar/DataPanel/VBox" instance=ExtResource("3_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+name_text = "Medals"
+value_text = "0"
+
+[node name="Spacer" type="Control" parent="Margin/Root/Body/Sidebar"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LandingPractice" type="Button" parent="Margin/Root/Body/Sidebar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+text = "LANDING PRACTICE"
+
+[node name="Tutorial" type="Button" parent="Margin/Root/Body/Sidebar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+text = "FLIGHT SCHOOL"
+
+[node name="Quit" type="Button" parent="Margin/Root/Body/Sidebar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "QUIT"

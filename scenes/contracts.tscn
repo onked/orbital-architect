@@ -1,0 +1,124 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://ui/contracts_screen.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+[ext_resource type="PackedScene" path="res://scenes/components/screen_header.tscn" id="3_header"]
+
+[node name="Contracts" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.0392157, 0.0627451, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 46
+theme_override_constants/margin_bottom = 22
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" parent="Margin/Root" instance=ExtResource("3_header")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HeadingRow" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Heading" type="Label" parent="Margin/Root/HeadingRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "AVAILABLE CONTRACTS"
+
+[node name="Line" type="ColorRect" parent="Margin/Root/HeadingRow"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+color = Color(0.117647, 0.164706, 0.227451, 1)
+
+[node name="Funds" type="Label" parent="Margin/Root/HeadingRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.819608, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "FUNDS $0"
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 1
+
+[node name="Rows" type="VBoxContainer" parent="Margin/Root/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Footer" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Refresh" type="Button" parent="Margin/Root/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 38)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "REFRESH OFFERS"
+
+[node name="Builder" type="Button" parent="Margin/Root/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "MISSION BUILDER"
+
+[node name="Spacer" type="Control" parent="Margin/Root/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="DestinationLabel" type="Label" parent="Margin/Root/Footer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 9
+text = "DESTINATION"
+
+[node name="Destination" type="OptionButton" parent="Margin/Root/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="FreeBuild" type="Button" parent="Margin/Root/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.329412, 0.839216, 0.541176, 1)
+theme_override_font_sizes/font_size = 10
+text = "FREE BUILD  >"

@@ -1,0 +1,585 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://ui/sim_screen.gd" id="1_script"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="2_theme"]
+[ext_resource type="Script" path="res://ui/world_view.gd" id="3_world"]
+[ext_resource type="PackedScene" path="res://scenes/components/stat_row.tscn" id="4_stat"]
+
+[node name="Flight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137, 0.058824, 0.086275, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TopBar" type="PanelContainer" parent="Margin/Root"]
+layout_mode = 2
+
+[node name="Row" type="HBoxContainer" parent="Margin/Root/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Back" type="Button" parent="Margin/Root/TopBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 11
+flat = true
+text = "< CONTROL"
+
+[node name="Titles" type="VBoxContainer" parent="Margin/Root/TopBar/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+
+[node name="Title" type="Label" parent="Margin/Root/TopBar/Row/Titles"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "MISSION"
+
+[node name="Clock" type="Label" parent="Margin/Root/TopBar/Row/Titles"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 11
+text = "T+ 00h 00m"
+
+[node name="WarpState" type="Label" parent="Margin/Root/TopBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+text = "PAUSED"
+vertical_alignment = 1
+
+[node name="Warps" type="HBoxContainer" parent="Margin/Root/TopBar/Row"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Warp1" type="Button" parent="Margin/Root/TopBar/Row/Warps"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "1x"
+
+[node name="Warp10" type="Button" parent="Margin/Root/TopBar/Row/Warps"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "10x"
+
+[node name="Warp100" type="Button" parent="Margin/Root/TopBar/Row/Warps"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "100x"
+
+[node name="Warp1000" type="Button" parent="Margin/Root/TopBar/Row/Warps"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "1kx"
+
+[node name="Warp10000" type="Button" parent="Margin/Root/TopBar/Row/Warps"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "10kx"
+
+[node name="Warp100000" type="Button" parent="Margin/Root/TopBar/Row/Warps"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "100kx"
+
+[node name="Warp1000000" type="Button" parent="Margin/Root/TopBar/Row/Warps"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "1Mx"
+
+[node name="Warp10000000" type="Button" parent="Margin/Root/TopBar/Row/Warps"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "10Mx"
+
+[node name="Pause" type="Button" parent="Margin/Root/TopBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "PAUSE"
+
+[node name="Skip" type="Button" parent="Margin/Root/TopBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "+1 H"
+
+[node name="Rewind" type="Button" parent="Margin/Root/TopBar/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(66, 0)
+layout_mode = 2
+disabled = true
+theme_override_font_sizes/font_size = 10
+text = "REWIND"
+
+[node name="End" type="Button" parent="Margin/Root/TopBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.898039, 0.282353, 0.301961, 1)
+theme_override_font_sizes/font_size = 10
+text = "END"
+
+[node name="Accent" type="ColorRect" parent="Margin/Root"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.207843, 0.815686, 0.878431, 0.55)
+
+[node name="Body" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="Left" type="PanelContainer" parent="Margin/Root/Body"]
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Left"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Status" type="Label" parent="Margin/Root/Body/Left/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.709804, 0.239216, 1)
+theme_override_font_sizes/font_size = 12
+text = "PLANNING"
+autowrap_mode = 3
+
+[node name="D1" type="ColorRect" parent="Margin/Root/Body/Left/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.141176, 0.196078, 0.266667, 1)
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Left/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "TELEMETRY"
+
+[node name="Mass" parent="Margin/Root/Body/Left/VBox" instance=ExtResource("4_stat")]
+unique_name_in_owner = true
+name_text = "Wet mass"
+value_text = "--"
+
+[node name="Fuel" parent="Margin/Root/Body/Left/VBox" instance=ExtResource("4_stat")]
+unique_name_in_owner = true
+name_text = "Propellant"
+value_text = "--"
+
+[node name="DeltaV" parent="Margin/Root/Body/Left/VBox" instance=ExtResource("4_stat")]
+unique_name_in_owner = true
+name_text = "Delta-V left"
+value_text = "--"
+
+[node name="Range" parent="Margin/Root/Body/Left/VBox" instance=ExtResource("4_stat")]
+unique_name_in_owner = true
+name_text = "Target range"
+value_text = "--"
+
+[node name="Altitude" parent="Margin/Root/Body/Left/VBox" instance=ExtResource("4_stat")]
+unique_name_in_owner = true
+name_text = "Surface altitude"
+value_text = "--"
+
+[node name="RelSpeed" parent="Margin/Root/Body/Left/VBox" instance=ExtResource("4_stat")]
+unique_name_in_owner = true
+name_text = "Relative speed"
+value_text = "--"
+
+[node name="Power" parent="Margin/Root/Body/Left/VBox" instance=ExtResource("4_stat")]
+unique_name_in_owner = true
+name_text = "Power"
+value_text = "--"
+
+[node name="Periapsis" parent="Margin/Root/Body/Left/VBox" instance=ExtResource("4_stat")]
+unique_name_in_owner = true
+name_text = "Periapsis"
+value_text = "--"
+
+[node name="Apoapsis" parent="Margin/Root/Body/Left/VBox" instance=ExtResource("4_stat")]
+unique_name_in_owner = true
+name_text = "Apoapsis"
+value_text = "--"
+
+[node name="D2" type="ColorRect" parent="Margin/Root/Body/Left/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.141176, 0.196078, 0.266667, 1)
+
+[node name="ObjectivesHeading" type="Label" parent="Margin/Root/Body/Left/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "OBJECTIVES"
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root/Body/Left/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Objectives" type="VBoxContainer" parent="Margin/Root/Body/Left/VBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="HintBox" type="VBoxContainer" parent="Margin/Root/Body/Left/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="HintHead" type="HBoxContainer" parent="Margin/Root/Body/Left/VBox/HintBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Left/VBox/HintBox/HintHead"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 9
+text = "HINT"
+
+[node name="Spacer" type="Control" parent="Margin/Root/Body/Left/VBox/HintBox/HintHead"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="BuyHint" type="Button" parent="Margin/Root/Body/Left/VBox/HintBox/HintHead"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.709804, 0.239216, 1)
+theme_override_font_sizes/font_size = 9
+flat = true
+text = "SOLVE -5"
+
+[node name="NextHint" type="Button" parent="Margin/Root/Body/Left/VBox/HintBox/HintHead"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 9
+flat = true
+text = "NEXT >"
+
+[node name="HintLine" type="Label" parent="Margin/Root/Body/Left/VBox/HintBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.843137, 0.890196, 0.956863, 1)
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 3
+text = "--"
+
+[node name="Map" type="Control" parent="Margin/Root/Body"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_world")
+
+[node name="Right" type="PanelContainer" parent="Margin/Root/Body"]
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root/Body/Right"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Root/Body/Right/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "MANEUVER PLANNER"
+
+[node name="Caption" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 3
+text = "Burns apply instantly."
+
+[node name="ProgradeRow" type="HBoxContainer" parent="Margin/Root/Body/Right/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Name" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox/ProgradeRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 11
+text = "PROGRADE"
+
+[node name="Spacer" type="Control" parent="Margin/Root/Body/Right/Scroll/VBox/ProgradeRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgradeEdit" type="LineEdit" parent="Margin/Root/Body/Right/Scroll/VBox/ProgradeRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+tooltip_text = "Exact burn. Enter to apply."
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 12
+text = "0"
+alignment = 2
+select_all_on_focus = true
+
+[node name="ProgradeValue" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox/ProgradeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+text = "m/s"
+
+[node name="Prograde" type="HSlider" parent="Margin/Root/Body/Right/Scroll/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -6000.0
+max_value = 6000.0
+step = 1.0
+
+[node name="RadialRow" type="HBoxContainer" parent="Margin/Root/Body/Right/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Name" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox/RadialRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 11
+text = "RADIAL"
+
+[node name="Spacer" type="Control" parent="Margin/Root/Body/Right/Scroll/VBox/RadialRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RadialEdit" type="LineEdit" parent="Margin/Root/Body/Right/Scroll/VBox/RadialRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+tooltip_text = "Exact burn. Enter to apply."
+theme_override_colors/font_color = Color(0.603922, 0.482353, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "0"
+alignment = 2
+select_all_on_focus = true
+
+[node name="RadialValue" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox/RadialRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+text = "m/s"
+
+[node name="Radial" type="HSlider" parent="Margin/Root/Body/Right/Scroll/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -2500.0
+max_value = 2500.0
+step = 1.0
+
+[node name="BurnSummary" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.709804, 0.239216, 1)
+theme_override_font_sizes/font_size = 12
+text = "No burn planned"
+autowrap_mode = 3
+
+[node name="Execute" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+text = "EXECUTE BURN"
+
+[node name="AutoCapture" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "AUTO-PLAN CAPTURE"
+
+[node name="D6" type="ColorRect" parent="Margin/Root/Body/Right/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.141176, 0.196078, 0.266667, 1)
+
+[node name="EncounterHead" type="HBoxContainer" parent="Margin/Root/Body/Right/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Heading" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox/EncounterHead"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "FLYBY WINDOWS"
+
+[node name="Spacer" type="Control" parent="Margin/Root/Body/Right/Scroll/VBox/EncounterHead"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="ScanEncounters" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox/EncounterHead"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "SCAN"
+
+[node name="Encounters" type="VBoxContainer" parent="Margin/Root/Body/Right/Scroll/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="SolveBurn" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+disabled = true
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "SOLVE BURN"
+
+[node name="D3" type="ColorRect" parent="Margin/Root/Body/Right/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.141176, 0.196078, 0.266667, 1)
+
+[node name="ComputerHeading" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "FLIGHT COMPUTER"
+
+[node name="Focus" type="HBoxContainer" parent="Margin/Root/Body/Right/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="FocusEarth" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox/Focus"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+text = "EARTH"
+
+[node name="FocusMoon" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox/Focus"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+text = "MOON"
+
+[node name="FocusShip" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox/Focus"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+text = "SHIP"
+
+[node name="FocusSystem" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox/Focus"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+text = "SYSTEM"
+
+[node name="Zoom" type="HBoxContainer" parent="Margin/Root/Body/Right/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="ZoomIn" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox/Zoom"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+text = "ZOOM +"
+
+[node name="ZoomOut" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox/Zoom"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+text = "ZOOM -"
+
+[node name="D4" type="ColorRect" parent="Margin/Root/Body/Right/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.141176, 0.196078, 0.266667, 1)
+
+[node name="ScienceState" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 3
+text = "DSN: idle"
+
+[node name="Transmit" type="Button" parent="Margin/Root/Body/Right/Scroll/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "TRANSMIT SCIENCE"
+
+[node name="D5" type="ColorRect" parent="Margin/Root/Body/Right/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.141176, 0.196078, 0.266667, 1)
+
+[node name="LogHeading" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.207843, 0.815686, 0.878431, 1)
+theme_override_font_sizes/font_size = 10
+text = "EVENT LOG"
+
+[node name="Log" type="Label" parent="Margin/Root/Body/Right/Scroll/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.556863, 0.639216, 1)
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 3
+vertical_alignment = 0
+text = ""
